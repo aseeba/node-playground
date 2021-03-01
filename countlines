@@ -1,0 +1,12 @@
+const chalk = require('chalk')
+const fs = require('fs')
+const { exit } = require('process')
+const file = process.argv[2]
+console.log(process.argv)
+
+fs.readFile(path, { endcoding: 'utf-8 ' }, (err, data) => {
+  err
+    ? console.error(chalk.red(err))
+    : console.log(chalk.green(text.split('/n').length))
+  exit(err ? 1 : 0)
+})
