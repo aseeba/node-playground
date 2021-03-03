@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/aseeba/node-playground#readme",
   "dependencies": {
-    "chalk": "^4.1.0"
+    "chalk": "^4.1.0",
+    "mongoose": "^5.11.18"
   }
 }

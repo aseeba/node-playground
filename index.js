@@ -1,3 +1,3 @@
-// ESM (EcmaScript Module) syntax hello from './hello.'
+// ESM syntax: import hello from './hello'
 const read = require('./read.js')
-read('prettierrc')
+read('.prettierrc')

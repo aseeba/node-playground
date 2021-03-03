@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+const chalk = require('chalk')
+const fs = require('fs')
+const { exit } = require('process')
+const { cursorTo } = require('readline')
+
+const file = 'tools.json'
+const tool = process.argv[2]
+const score = process.argv[3]
+
+fs.readFile(file, { encoding: 'utf-8' }, (err, data) => {
+  const tools = err ? [] : JSON.parse(data)
+  tools.push({ name: tool, score })
+  fs.writeFile(file, JSON.stringify(tools), { encoding: 'utf-8' }, err => {
+    if (!err) {
+      tools.forEach(tool =>
+        console.log(chalk.yellow(tool.name) + '\t\t' + chalk.blue(tool.score))
+      )
+      console.log(chalk.gray('-----------------'))
+      const average =
+        tools.reduce((acc, cur) => acc + Number(cur.score), 0) / tools.length
+      console.log(chalk.gray.bold('Average \t') + chalk.blue.bold(average))
+    }
+    exit(err ? 1 : 0)
+  })
+})
